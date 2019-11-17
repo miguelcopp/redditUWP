@@ -12,12 +12,19 @@ namespace RedditUWP
     {
         public static IEnumerable<Post> GetTop()
         {
-            var reddit = new Reddit();
-            var subreddit = reddit.FrontPage;
+            try
+            {
+                var reddit = new Reddit();
+                var subreddit = reddit.FrontPage;
 
-            IEnumerable<Post> topPosts = subreddit.GetTop(FromTime.All).Take(50);
+                IEnumerable<Post> topPosts = subreddit.GetTop(FromTime.All).Take(50);
 
-            return topPosts;
+                return topPosts;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
     }
 }
