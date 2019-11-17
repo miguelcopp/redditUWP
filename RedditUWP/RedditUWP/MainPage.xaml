@@ -9,7 +9,6 @@
 
     <Grid Name="grid">
         <StackPanel Orientation="Vertical">
-
             <Grid Background="#FF5700">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -31,6 +30,7 @@
                            Width="Auto"
                            VerticalAlignment="Center"
                            Margin="5,10,0,10" />
+
                 <Border Grid.Column="2"
                         Background="#FF5700"
                         BorderThickness="2"
@@ -65,38 +65,54 @@
                     </Button>
                 </Border>
             </Grid>
-                
-            <ListBox Background="WhiteSmoke"
-                     Width="1500px"
-                     Height="800px"
-                     Name="postsList">
+
+            <ListBox Background="#f2f2f2"
+                     Width="Auto"
+                     Height="900px"
+                     Name="postsList" 
+                     HorizontalContentAlignment="Center">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border Background="White"
                                 BorderThickness="0.8"
-                                BorderBrush="#d9d9d9">
-                            <Grid>
+                                BorderBrush="#d9d9d9"
+                                Width="500px"
+                                Margin="10,0,10,0">
+                            <Grid HorizontalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
+                                    <RowDefinition Height="3*" />
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Column="0"
                                            Grid.ColumnSpan="2"
                                            Grid.Row="0"
                                            Text="{Binding Title}"
+                                           TextTrimming="CharacterEllipsis"
+                                           TextWrapping="Wrap"
                                            FontSize="18"
                                            TextAlignment="Left"
                                            FontWeight="Bold"
                                            Foreground="#333333"
                                            Width="Auto" 
-                                           Margin="10,10,10,5"/>
+                                           Margin="20,20,20,10"/>
+
+
+                                <Image Source="{Binding Thumbnail.AbsoluteUri}"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="1"
+                                       Height="300px" />
+
+
+
+
                                 <TextBlock Grid.Column="0"
                                            FontWeight="Normal"
-                                           Grid.Row="1"
+                                           Grid.Row="2"
                                            Text="{Binding AuthorName}"
                                            FontSize="14"
                                            Foreground="#404040"
@@ -104,22 +120,39 @@
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Width="150"
-                                           Margin="10,5,10,10" />
+                                           Margin="20,10,20,20" />
                                 <StackPanel Grid.Column="1"
-                                            Grid.Row="1"
+                                            Grid.Row="2"
                                             Orientation="Horizontal"
+                                            HorizontalAlignment="Right"
                                             VerticalAlignment="Center"
-                                            Margin="10,5,10,10">
+                                            Margin="10,10,20,20">
+                                    <Image Source="Images/dateIcon.png"
+                                           Height="20px"
+                                           Width="20px"
+                                           HorizontalAlignment="Right" />
+                                    <TextBlock FontWeight="Normal"
+                                               Text="{Binding Created.Date}"
+                                               FontSize="12"
+                                               Foreground="#666666"
+                                               Margin="5,0,0,0"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Right"
+                                               TextAlignment="Right"
+                                               Width="180px" />
                                     <Image Source="Images/commentIcon.png" 
-                                           Height="25px"
-                                           Width="25px" />
+                                           Height="20px"
+                                           Width="20px"
+                                           HorizontalAlignment="Right"/>
                                     <TextBlock FontWeight="Normal"
                                                Text="{Binding CommentCount}"
                                                FontSize="12"
                                                Foreground="#666666"
-                                               Margin="10,0,0,0"
+                                               Margin="5,0,0,0"
                                                VerticalAlignment="Center"
-                                               Width="150" />
+                                               HorizontalAlignment="Right"
+                                               TextAlignment="Right"
+                                               Width="30px" />
                                 </StackPanel>
                             </Grid>
                         </Border>
