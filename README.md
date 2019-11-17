@@ -6,7 +6,7 @@ A Reddit CLient to get the last top entries.
 
  - UWP (Targeting the latest Windows version)
 
- - RedditSharp https://github.com/CrustyJew/RedditSharp
+ - RedditSharp: https://github.com/CrustyJew/RedditSharp
 
 ## Author
 
