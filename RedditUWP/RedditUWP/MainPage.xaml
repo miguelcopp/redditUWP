@@ -10,6 +10,9 @@
     <Grid Name="grid">
         <StackPanel Orientation="Vertical">
 
+            <!--<Image Source="Images/logoReddit.png"
+                   Height="25px"
+                   Width="25px" />-->
             <Button Name="btnGetTop"
                     Content="GET TOP POSTS"
                     Height="64"
@@ -21,42 +24,63 @@
                     Margin="20"
                     Click="btnGetTop_Click" />
 
-            <ListBox Background="White"
+            <ListBox Background="WhiteSmoke"
                      Width="1500px"
                      Height="800px"
                      Name="postsList">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="70" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="60" />
-                                <RowDefinition Height="60" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Column="0"
-                                       Grid.ColumnSpan="3"
-                                       Grid.Row="0"
-                                       Text="{Binding Title}"
-                                       FontSize="22"
-                                       TextAlignment="Left"
-                                       Width="Auto" />
-                            <TextBlock Grid.Column="0"
-                                       Grid.Row="1"
-                                       Text="{Binding AuthorName}"
-                                       FontSize="22"
-                                       TextAlignment="Left"
-                                       Width="150" />
-                            <TextBlock Grid.Column="3"
-                                       Grid.Row="1"
-                                       Text="{Binding CommentCount}"
-                                       FontSize="22"
-                                       TextAlignment="Right"
-                                       Width="70" />
-                        </Grid>
+                        <Border Background="White"
+                                BorderThickness="0.8"
+                                BorderBrush="#d9d9d9">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Column="0"
+                                           Grid.ColumnSpan="2"
+                                           Grid.Row="0"
+                                           Text="{Binding Title}"
+                                           FontSize="18"
+                                           TextAlignment="Left"
+                                           FontWeight="Bold"
+                                           Foreground="#333333"
+                                           Width="Auto" 
+                                           Margin="10,10,10,5"/>
+                                <TextBlock Grid.Column="0"
+                                           FontWeight="Normal"
+                                           Grid.Row="1"
+                                           Text="{Binding AuthorName}"
+                                           FontSize="14"
+                                           Foreground="#404040"
+                                           TextAlignment="Left"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Width="150"
+                                           Margin="10,5,10,10" />
+                                <StackPanel Grid.Column="1"
+                                            Grid.Row="1"
+                                            Orientation="Horizontal"
+                                            VerticalAlignment="Center"
+                                            Margin="10,5,10,10">
+                                    <Image Source="Images/commentIcon.png" 
+                                           Height="25px"
+                                           Width="25px" />
+                                    <TextBlock FontWeight="Normal"
+                                               Text="{Binding CommentCount}"
+                                               FontSize="12"
+                                               Foreground="#666666"
+                                               Margin="10,0,0,0"
+                                               VerticalAlignment="Center"
+                                               Width="150" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
