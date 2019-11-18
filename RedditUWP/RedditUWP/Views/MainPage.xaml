@@ -11,7 +11,7 @@
         <local:StringFormatConverter x:Key="StringFormatConverter" />
     </Page.Resources>
 
-    <Grid Name="grid">
+    <Grid>
         <StackPanel Orientation="Vertical">
             <Grid Background="#FF5700">
                 <Grid.ColumnDefinitions>
@@ -21,7 +21,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Image Grid.Column="0"
-                       Source="Images/logoReddit.png"
+                       Source="/Assets/logoReddit.png"
                        Height="50px"
                        Width="50px"
                        Margin="20,10,5,10"/>
@@ -46,9 +46,10 @@
                         Height="50px"
                         Margin="0,10,20,10"
                         CornerRadius="7"
+                        ToolTipService.ToolTip="Get the top 50 entries"
                         HorizontalAlignment="Right">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="Images/topIcon.png"
+                        <Image Source="/Assets/topIcon.png"
                                Height="20px"
                                Width="20px"
                                Margin="5,5,5,5" />
@@ -144,7 +145,7 @@
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Center"
                                             Margin="0,20,20,20">
-                                    <Image Source="Images/commentIcon.png"
+                                    <Image Source="/Assets/commentIcon.png"
                                            Height="20px"
                                            Width="20px"
                                            HorizontalAlignment="Right" />
