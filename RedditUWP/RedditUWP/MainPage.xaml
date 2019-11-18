@@ -22,12 +22,13 @@
 
                 <Image Grid.Column="0"
                        Source="Images/logoReddit.png"
-                       Height="40px"
-                       Width="40px"
+                       Height="50px"
+                       Width="50px"
                        Margin="20,10,5,10"/>
                 <TextBlock Grid.Column="1"
-                           Text="REDDIT API"
-                           FontSize="26"
+                           Text="reddit API"
+                           FontFamily="Calibri"
+                           FontSize="28"
                            TextAlignment="Left"
                            FontWeight="Normal"
                            Foreground="White"
