@@ -10,6 +10,7 @@ namespace RedditUWP
 {
     class RedditAPI
     {
+        // Get the top 50 of the Reddit entries by all the time.
         public static IEnumerable<Post> GetTop()
         {
             try

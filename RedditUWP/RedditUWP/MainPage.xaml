@@ -7,6 +7,10 @@
       mc:Ignorable="d"
       Background="WhiteSmoke">
 
+    <Page.Resources>
+        <local:StringFormatConverter x:Key="StringFormatConverter" />
+    </Page.Resources>
+
     <Grid Name="grid">
         <StackPanel Orientation="Vertical">
             <Grid Background="#FF5700">
@@ -30,8 +34,10 @@
                            Width="Auto"
                            VerticalAlignment="Center"
                            Margin="5,10,0,10" />
-
-                <Border Grid.Column="2"
+                <Button Name="btnGetTop"
+                        Foreground="White"
+                        Click="btnGetTop_Click"
+                        Grid.Column="2"
                         Background="#FF5700"
                         BorderThickness="2"
                         BorderBrush="WhiteSmoke"
@@ -40,57 +46,52 @@
                         Margin="0,10,20,10"
                         CornerRadius="7"
                         HorizontalAlignment="Right">
-                    <Button Name="btnGetTop"
-                            Height="Auto"                     
-                            Background="Transparent"
-                            Foreground="White"
-                            Click="btnGetTop_Click"
-                            HorizontalAlignment="Center">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="Images/topIcon.png"
-                                   Height="20px"
-                                   Width="20px"
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/topIcon.png"
+                               Height="20px"
+                               Width="20px"
+                               Margin="5,5,5,5" />
+                        <TextBlock FontWeight="SemiBold"
+                                   Grid.Row="1"
+                                   Text="TOP CONTENT"
+                                   FontSize="16"
+                                   Foreground="White"
+                                   TextAlignment="Left"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Width="Auto"
                                    Margin="5,5,5,5" />
-                            <TextBlock FontWeight="SemiBold"
-                                       Grid.Row="1"
-                                       Text="TOP CONTENT"
-                                       FontSize="16"
-                                       Foreground="White"
-                                       TextAlignment="Left"
-                                       HorizontalAlignment="Left"
-                                       VerticalAlignment="Center"
-                                       Width="Auto"
-                                       Margin="5,5,5,5" />
-                        </StackPanel>
-                    </Button>
-                </Border>
+                    </StackPanel>
+                </Button>
             </Grid>
 
-            <ListBox Background="#f2f2f2"
+            <ListBox Background="#e6e6e6"
                      Width="Auto"
                      Height="900px"
                      Name="postsList" 
                      HorizontalContentAlignment="Center">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment"
+                                Value="Stretch" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border Background="White"
                                 BorderThickness="0.8"
-                                BorderBrush="#d9d9d9"
-                                Width="500px"
-                                Margin="10,0,10,0">
+                                BorderBrush="#bfbfbf"
+                                Width="350px"
+                                Margin="10,0,10,0"
+                                HorizontalAlignment="Center">
                             <Grid HorizontalAlignment="Center">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
+                                    <RowDefinition Height="0.4*" />
                                     <RowDefinition Height="3*" />
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Column="0"
-                                           Grid.ColumnSpan="2"
-                                           Grid.Row="0"
+                                <TextBlock Grid.Row="0"
                                            Text="{Binding Title}"
                                            TextTrimming="CharacterEllipsis"
                                            TextWrapping="Wrap"
@@ -98,56 +99,58 @@
                                            TextAlignment="Left"
                                            FontWeight="Bold"
                                            Foreground="#333333"
-                                           Width="Auto" 
-                                           Margin="20,20,20,10"/>
-
-
+                                           Width="Auto"
+                                           Margin="20,20,20,0" />
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Row="1"
+                                            HorizontalAlignment="Left"
+                                            Margin="20,5,20,20">
+                                    <TextBlock FontWeight="Normal"
+                                               Text="Posted by u/"
+                                               FontSize="14"
+                                               Foreground="#999999"
+                                               TextAlignment="Left"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center" />
+                                    <TextBlock FontWeight="SemiBold"
+                                               Text="{Binding AuthorName}"
+                                               FontSize="14"
+                                               Foreground="#808080"
+                                               TextAlignment="Left"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center" />
+                                    <TextBlock FontWeight="Normal"
+                                               Text="{Binding Created.Date, Converter={StaticResource StringFormatConverter}}"
+                                               FontSize="14"
+                                               Foreground="#999999"
+                                               Margin="4,0,0,0"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               TextAlignment="Left" />
+                                    <TextBlock FontWeight="Normal"
+                                               Text=" months ago"
+                                               FontSize="14"
+                                               Foreground="#999999"
+                                               TextAlignment="Left"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
                                 <Image Source="{Binding Thumbnail.AbsoluteUri}"
-                                       Grid.ColumnSpan="2"
-                                       Grid.Row="1"
-                                       Height="300px" />
-
-
-
-
-                                <TextBlock Grid.Column="0"
-                                           FontWeight="Normal"
-                                           Grid.Row="2"
-                                           Text="{Binding AuthorName}"
-                                           FontSize="14"
-                                           Foreground="#404040"
-                                           TextAlignment="Left"
-                                           HorizontalAlignment="Left"
-                                           VerticalAlignment="Center"
-                                           Width="150"
-                                           Margin="20,10,20,20" />
-                                <StackPanel Grid.Column="1"
-                                            Grid.Row="2"
+                                       Grid.Row="2"
+                                       Height="350px" />
+                                <StackPanel Grid.Row="3"
                                             Orientation="Horizontal"
                                             HorizontalAlignment="Right"
                                             VerticalAlignment="Center"
-                                            Margin="10,10,20,20">
-                                    <Image Source="Images/dateIcon.png"
+                                            Margin="0,20,20,20">
+                                    <Image Source="Images/commentIcon.png"
                                            Height="20px"
                                            Width="20px"
                                            HorizontalAlignment="Right" />
                                     <TextBlock FontWeight="Normal"
-                                               Text="{Binding Created.Date}"
-                                               FontSize="12"
-                                               Foreground="#666666"
-                                               Margin="5,0,0,0"
-                                               VerticalAlignment="Center"
-                                               HorizontalAlignment="Right"
-                                               TextAlignment="Right"
-                                               Width="180px" />
-                                    <Image Source="Images/commentIcon.png" 
-                                           Height="20px"
-                                           Width="20px"
-                                           HorizontalAlignment="Right"/>
-                                    <TextBlock FontWeight="Normal"
                                                Text="{Binding CommentCount}"
                                                FontSize="12"
-                                               Foreground="#666666"
+                                               Foreground="#808080"
                                                Margin="5,0,0,0"
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="Right"
