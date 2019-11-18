@@ -19,7 +19,6 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-
                 <Image Grid.Column="0"
                        Source="/Assets/logoReddit.png"
                        Height="50px"
@@ -70,7 +69,7 @@
             <ListBox Background="#e6e6e6"
                      Width="Auto"
                      Height="900px"
-                     Name="postsList" 
+                     Name="postsList"
                      HorizontalContentAlignment="Center">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">

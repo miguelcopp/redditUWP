@@ -16,8 +16,9 @@ namespace RedditUWP
 
                 return diffDates;
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                Console.Write("Error: " + e);
                 return null;
             }
         }

@@ -20,8 +20,9 @@ namespace RedditUWP
 
                 return topPosts;
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                Console.Write("Error: " + e);
                 return null;
             }
         }
