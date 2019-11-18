@@ -1,6 +1,6 @@
 # Reddit Client
 
-A Reddit CLient to get the last top entries.
+A Reddit Client to get the top 50 entries from all the time.
 
 ## Technologies
 
